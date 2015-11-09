@@ -12,10 +12,16 @@ nuget:
   disable_publish_on_pr: true
 before_build:
 - cmd: nuget restore
+branches:
+  only:
+    - master
 build:
   publish_nuget: true
   publish_nuget_symbols: true
   verbosity: minimal
+  
+build:
+  verbosity: minimal  
 test_script:
 - cmd: >-
     nunit-console.exe %APPVEYOR_BUILD_FOLDER%\NetworkTablesCore.Test\Output\NetworkTablesCore.Test.dll /framework:net-4.0 /include:Server
