@@ -20,6 +20,7 @@
   branches:
     only:
       - master
+  nuget:
     disable_publish_on_pr: true
   build:
     publish_nuget: true
